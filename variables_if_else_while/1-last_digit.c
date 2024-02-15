@@ -9,7 +9,7 @@
 
 /**
  * main - Prints a random number, take its last digit 
- * 	and said if is grather than 5, an 0 or less than 6.
+ * and said if is grather than 5, an 0 or less than 6.
  *
  * Return: Always 0.
 */
