@@ -4,7 +4,7 @@
  */
 
 #include <stdio.h>
-#inlcude <time.h>
+#include <time.h>
 
 /**
  * main - Entry point
