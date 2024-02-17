@@ -2,11 +2,12 @@
 #include "main.h"
 
 /**
- * main - primts the alphabet in lowercase
+ * print_alphabet - prints the alphabet in lowercase, followed 
+ * 			by a new line
  *
  * Return: Always 0 (Success)
  */
-int main(void)
+void print_alphabet(void)
 {
 	int i;
 
@@ -14,5 +15,15 @@ int main(void)
 		_putchar(i);
 		
 	_putchar('\n');
+}
+
+/**
+ * main - primts the alphabet in lowercase
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	print_alphabet();
 	return (0);
 }
