@@ -8,7 +8,12 @@
  */
 int main(void)
 {
-	printf("_putchar\n");
-	return (0);
-}
+	int i;
+	char letter[] = "_putchar";
 
+	for(i = 0; letter[i] != '\0'; i++)
+	{
+		_putchar(letter[i]);	
+		return (0);
+	}
+}
