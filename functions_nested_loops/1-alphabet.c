@@ -5,7 +5,7 @@
  * print_alphabet - prints the alphabet in lowercase, followed 
  * 			by a new line
  *
- * Return: Always 0 (Success)
+ * Return: void
  */
 void print_alphabet(void)
 {
@@ -18,7 +18,7 @@ void print_alphabet(void)
 }
 
 /**
- * main - primts the alphabet in lowercase
+ * main - use prnt function
  *
  * Return: Always 0 (Success)
  */
