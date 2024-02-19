@@ -3,7 +3,7 @@
 
 /**
  * print_sign - prints the sing with _putchar of @n.
- * @c: number in fact.
+ * @n: number in fact.
  *
  * Return: 0, 1 or -1.
  */
@@ -24,5 +24,4 @@ int print_sign(int n)
 		_putchar('0');
 		return (0);
 	}
-	return (0);
 }
