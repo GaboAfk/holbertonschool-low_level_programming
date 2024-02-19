@@ -5,9 +5,10 @@
  * print_last_digit - print the last digit of @n.
  * @n: number in fact.
  *
- * Return: 0.
+ * Return: e.
  */
 int print_last_digit(int n)
 {
-	return (n % 10);
+	int e = n % 10;
+	return (e);
 }
