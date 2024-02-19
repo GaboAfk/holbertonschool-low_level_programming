@@ -41,7 +41,7 @@ void print_times_table(int n)
 					{
 						_putchar(' ');
 
-						if (x +i < 10) 
+						if (x + i < 10)
 							_putchar(' ');
 					}
 				}
