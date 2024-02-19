@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_sign - prints the sing of @n.
+ * print_sign - prints the sing with _putchar of @n.
  * @c: number in fact.
  * Return: 0, 1 or -1.
  */
