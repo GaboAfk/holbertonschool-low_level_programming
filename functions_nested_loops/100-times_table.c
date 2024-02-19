@@ -38,11 +38,11 @@ void print_times_table(int n)
                                 	_putchar(',');
                                 	_putchar(' ');
 
-                                	if (x < 100)
+                                	if (x + i < 100)
 					{
                                         	_putchar(' ');
 
-						if (x < 10) 
+						if (x +i < 10) 
                                         		_putchar(' ');
 					}
                         	}
