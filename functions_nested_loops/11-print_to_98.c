@@ -3,7 +3,7 @@
 
 /**
  * print_to_98 - prints all natural numbers from @n to 98, 
- * 			followed by a new line.
+ *			followed by a new line.
  * @n: first number to star counting.
  *
  * Return: NULL
