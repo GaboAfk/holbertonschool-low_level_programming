@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
- * fizz_buzz - prints the numbers from 1 to 100, followed by a new line,
+ * main - prints the numbers from 1 to 100, followed by a new line,
  * 		each three will be Fizz, five by Buzz and multiples of both
  * 		FizzBuzz.
- * @size: size of square.
+ * Return: 0.
  */
-void fizz_buzz(void)
+int main(void)
 {
 	int i;
 
@@ -27,5 +26,5 @@ void fizz_buzz(void)
 		if (i < 100)
 			printf(" ");
 	}
-	_putchar('\n');
+	printf("\n");
 }
