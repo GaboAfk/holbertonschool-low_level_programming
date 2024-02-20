@@ -2,7 +2,7 @@
 
 /**
  * print_numbers - prints the numbers, from 0 to 9
- * 		 followed by a new line using only two _putchar
+ *		 followed by a new line using only two _putchar
  *
  */
 void print_numbers(void)
