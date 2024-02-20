@@ -4,7 +4,7 @@
  * print_diagonal - draws a diagonal line depending of @n.
  * @n: number of lines to draw.
  */
-void print_line(int n)
+void print_diagonal(int n)
 {
 	int i, j;
 
