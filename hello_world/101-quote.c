@@ -7,7 +7,7 @@ int main(void)
 	int i;
 
 	for (i = 0; message[i] != '\0'; i++)	
-		write(2, message[i], 1);
+		write(2, &message[i], 1);
 
 	return 1;
 }
