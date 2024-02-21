@@ -23,11 +23,11 @@ int main(void)
 					putchar(k + '0');
 					putchar(l + '0');
 
-					if (i == 9 && j == 9 && k == 9 && l == 9)
-					break;
-
-					putchar(',');
-					putchar(' ');
+					if (!(i == 9 && j == 9 && k == 9 && l == 9))
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
@@ -36,4 +36,3 @@ int main(void)
 
 	return (0);
 }
-
