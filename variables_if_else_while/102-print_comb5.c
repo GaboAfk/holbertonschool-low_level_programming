@@ -1,8 +1,5 @@
-#include <stdio.h>
-
 /**
  * main - print all possible combinations of two two-digit numbers
- *
  * Return: Always 0 (Success)
  */
 int main(void)
@@ -15,11 +12,8 @@ int main(void)
 		{
 			for (k = i; k <= 9; k++)
 			{
-				for (l = j; l <= 9; l++)
+				for (l = (k == i) ? j + 1 : 0; l <= 9; l++)
 				{
-					if (k == i && j == l)
-						l++;
-
 					putchar(i + '0');
 					putchar(j + '0');
 
@@ -28,8 +22,9 @@ int main(void)
 					putchar(k + '0');
 					putchar(l + '0');
 
-					if (i == 9 && j == 8)
+					if (i == 9 && j == 9 && k == 9 && l == 9)
 					break;
+
 					putchar(',');
 					putchar(' ');
 				}
