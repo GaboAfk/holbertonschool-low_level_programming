@@ -1,5 +1,5 @@
 /*
- * File: 9-trcpy.c
+ * File: 9-strcpy.c
  * Auth: Gabriel Morffe
  */
 
