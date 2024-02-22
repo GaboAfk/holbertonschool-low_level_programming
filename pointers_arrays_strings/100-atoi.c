@@ -32,7 +32,10 @@ int _atoi(char *s)
 		{
 			if (!i)
 				i = 1;
-			r = r * 10 + *s - '0';
+			if (r < 0)
+				r = r * 10 - (*s - '0');
+			else
+				r = -(*s - '0');
 		}
 		else if (i)
 			break;
@@ -40,7 +43,7 @@ int _atoi(char *s)
 		s++;
 	}
 
-	if (n)
+	if (!n)
 		r = -r;
 	return (r);
 }
