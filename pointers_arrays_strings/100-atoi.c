@@ -14,12 +14,8 @@ int _atoi(char *s)
 {
 	int n = 0, r = 0, i = 0;
 
-	if (*s == '\0')
-		return (0);
-
 	while (*s != '\0')
 	{
-
 		if (*s == '-')
 		{
 			if (n == 0)
@@ -39,7 +35,6 @@ int _atoi(char *s)
 		}
 		else if (i)
 			break;
-
 		s++;
 	}
 
