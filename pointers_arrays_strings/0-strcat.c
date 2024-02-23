@@ -1,5 +1,5 @@
 /*
- * File: 0-strcat.c
+ * File: 0-trcat.c
  * Auth: Gabriel Morffe
  */
 
