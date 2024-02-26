@@ -16,15 +16,19 @@ char *cap_string(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == '.')
+		if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
+			s[i] -= 32;
+
+		else if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == '.')
 			C = 1;
 		else if (s[i] == '!' || s[i] == '?' || s[i] == '(' || s[i] == ')')
 			C = 1;
-		else if (s[i] == '{' || s[i] == '}' || i == 0)
+		else if (s[i] == '{' || s[i] == '}')
 			C = 1;
 
 		else if (C && s[i] >= 'a' && s[i] <= 'z')
-		{	s[i] -= 32;
+		{
+			s[i] -= 32;
 			C = 0;
 		}
 		else
