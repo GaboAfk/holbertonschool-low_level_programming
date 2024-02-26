@@ -20,7 +20,7 @@ char *cap_string(char *s)
 			C = 1;
 		else if (s[i] == '!' || s[i] == '?' || s[i] == '(' || s[i] == ')')
 			C = 1;
-		else if (s[i] == '{' || s[i] == '}')
+		else if (s[i] == '{' || s[i] == '}' || i == 0)
 			C = 1;
 
 		else if (C && s[i] >= 'a' && s[i] <= 'z')
