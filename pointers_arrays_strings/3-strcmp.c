@@ -4,6 +4,7 @@
  */
 
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strcmp - compares two strings, 0 if are equal,
@@ -15,13 +16,23 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-	char i = 0, j = 0;
+	int r = 0;
 
-	while (*s1++ != '\0')
-		i += *s1;
+	while (*s1 != '\0' && *s2 != '\0' && !r)
+	{
+		r = *s1 - *s2;
+		s1++;
+		s2++;
+	}
 
-	while (*s2++ != '\0')
-		j += *s2;
+	if (r != 0)
+		return (r);
 
-	return (i - j - '0');
+	else if (*s1 != '\0')
+		return (*s1 - '0');
+
+	else if (*s2 != '\0')
+		return (-(*s2 - '0'));
+	else
+		return (r);
 }
