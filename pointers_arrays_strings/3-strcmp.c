@@ -23,5 +23,5 @@ int _strcmp(char *s1, char *s2)
 	while (*s2++ != '\0')
 		j += *s2;
 
-	return ((i - '0') - (j - '0'));
+	return (i - j - '0');
 }
