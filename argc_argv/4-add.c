@@ -61,11 +61,12 @@ int main(int argc, char **argv)
 	for (i = 1; i < argc; i++)
 	{
 		num = argv[i];
+
 		while (*num)
 		{
-			if (*num <= '0' && *num >= '9')
+			if (*num < '0' || *num > '9')
 			{
-				printf("Error");
+				printf("Error\n");
 				return (1);
 			}
 			num++;
