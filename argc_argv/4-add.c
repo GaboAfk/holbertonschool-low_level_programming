@@ -42,29 +42,37 @@ int _atoi(char *s)
 	return (r);
 }
 /**
- * main - multiplies two numbers from input.
+ * main - add numbers from input and prints its result.
  * @argc: number of arguments when compile.
  * @argv: array of strings passed when compile.
- * Return: Always 0 (Success)
+ * Return: 0 (Success). 1 if isnt a number.
  */
 int main(int argc, char **argv)
 {
-	int r = 0, i = 1;
+	int r = 0, i;
+	char *num;
 
-	while (argc > 1)
+	if (argc == 1)
 	{
-		if (argv[i][0] == '0' && argv[i][0] <= '9')
-		r += _atoi(argv[i]);
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		printf("0\n");
+		return (0);
 	}
 
-	if (argc <)else
+	for (i = 1; i < argc; i++)
 	{
+		num = argv[i];
+		while (*num)
+		{
+			if (*num <= '0' && *num >= '9')
+			{
+				printf("Error");
+				return (1);
 			}
+			num++;
+		}
+
+		r += _atoi(argv[i]);
+	}
 
 	printf("%d\n", r);
 	return (0);
