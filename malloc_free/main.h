@@ -36,3 +36,4 @@ int is_prime_number(int n);
 
 /* malloc functions */
 char *create_array(unsigned int size, char c);
+char *_strdup(char *str);
