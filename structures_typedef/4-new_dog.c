@@ -6,6 +6,39 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
+ * _strlen - return the length of a string
+ * @s: string.
+ *
+ * Return: len.
+ */
+int _strlen(char *s)
+{
+	int i;
+	int len = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		len++;
+	}
+
+	return (len);
+}
+/**
+ * *_strcpy - copy string from @src to @des.
+ * @dest: array.
+ * @src: string to copy.
+ * Return: string @src in @dest
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i] != '\0'; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
+}
+/**
  * *_strdup - using malloc for allocated space, which contains a copy of
  *				the string given as a parameter.
  * @str: string to duplicate.
@@ -46,7 +79,6 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new = malloc(sizeof(dog_t));
-	int i;
 
 	if (new == NULL)
 		return (NULL);
@@ -57,15 +89,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	for (i = 0; name[i] != '\0'; i++)
-		new->name[i] = name[i];
-	new->name[i] = '\0';
+	new->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (new->name == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
+	new->name = _strcpy(new->name, name);
 
 	new->age = age;
 
-	for (i = 0; owner[i] != '\0'; i++)
-		new->owner[i] = owner[i];
-	new->owner[i] = '\0';
+	new->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (new->owner == NULL)
+	{
+		free(new->name);
+		free(new);
+		return (NULL);
+	}
+	new->owner = _strcpy(new->owner, owner);
 
 	return (new);
 }
