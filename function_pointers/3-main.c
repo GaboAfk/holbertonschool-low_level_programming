@@ -29,6 +29,12 @@ int main(int argc, char **argv)
 	s = argv[2];
 	b = argv[3];
 
+	if (s[1] != '\0') /*only accepts ONE operator for operation*/
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
 	if (*s != '+' && *s != '-' && *s != '*' && *s != '/' && *s != '%')
 	{
 		printf("Error\n");
