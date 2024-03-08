@@ -17,7 +17,7 @@
 int main(int argc, char **argv)
 {
 	char *a, *b, *s;
-	int res;
+	int res, (*f_aux)(int, int);
 
 	if (argc != 4)
 	{
@@ -28,14 +28,9 @@ int main(int argc, char **argv)
 	a = argv[1];
 	s = argv[2];
 	b = argv[3];
+	f_aux = get_op_func(s);
 
-	if (s[1] != '\0') /*only accepts ONE operator for operation*/
-	{
-		printf("Error\n");
-		exit(99);
-	}
-
-	if (*s != '+' && *s != '-' && *s != '*' && *s != '/' && *s != '%')
+	if (f_aux == NULL || s[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
@@ -47,7 +42,7 @@ int main(int argc, char **argv)
 		exit(100);
 	}
 
-	res = get_op_func(s)(atoi(a), atoi(b));
+	res = f_aux(atoi(a), atoi(b));
 	printf("%d\n", res);
 
 	return (0);
