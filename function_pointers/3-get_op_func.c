@@ -27,11 +27,12 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
-	while (*s != *(ops[i].op) && i < 6)
+	while (ops[i].op != NULL)
+	{
+		if (*s == *(ops[i].op))
+			return (ops[i].f);
 		i++;
-
-	if (i < 6 && *s == *(ops[i].op))
-		return (ops[i].f);
+	}
 
 	return (NULL);
 }
