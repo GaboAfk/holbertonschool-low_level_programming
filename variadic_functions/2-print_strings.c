@@ -15,25 +15,27 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list words;
 	unsigned int i;
-	char *p;
+	const char *p;
 
 	va_start(words, n);
 
 	if (n > 0)
 	{
-		for (i = 0; i < n - 1; i++)
+		for (i = 0; i < n; i++)
 		{
-			p = va_arg(words, char*);
+			p = va_arg(words, const char*);
 
-			if (p == NULL)
-				printf("(nil)");
-			else
+			if (p != NULL)
 				printf("%s", p);
-			if (separator)
+			else
+				printf("(nil)");
+
+
+			if (separator && i < n - 1)
 				printf("%s", separator);
 		}
-
-		printf("%s", va_arg(words, char*));
 	}
-		printf("\n");
+
+	printf("\n");
+	va_end(words);
 }
