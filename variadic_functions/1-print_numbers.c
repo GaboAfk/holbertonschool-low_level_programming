@@ -13,8 +13,6 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	if (n > 0)
-	{
 		va_list nums;
 		unsigned int i;
 
@@ -27,7 +25,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 				printf("%s", separator);
 		}
 
+	if (n > 0)
 		printf("%d", va_arg(nums, int));
-		printf("\n");
-	}
+	printf("\n");
 }
