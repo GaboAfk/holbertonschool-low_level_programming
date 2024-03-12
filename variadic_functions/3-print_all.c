@@ -5,20 +5,55 @@
 
 #include "variadic_functions.h"
 #include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * print_c - function that prints chars.
+ * @txt: list of types of arguments passed to the funtction.
+ */
+void print_c(va_list txt)
+{
+	printf("%c", va_arg(txt, int));
+}
+
+/**
+ * print_i - function that prints integers.
+ * @txt: list of types of arguments passed to the funtction.
+ */
+void print_i(va_list txt)
+{
+	printf("%d", va_arg(txt, int));
+}
+
+/**
+ * print_f - function that prints floats.
+ * @txt: list of types of arguments passed to the funtction.
+ */
+void print_f(va_list txt)
+{
+	printf("%f", va_arg(txt, double));
+}
+
+/**
+ * print_s - function that prints strings. (nil) if NULL.
+ * @txt: list of types of arguments passed to the funtction.
+ */
+void print_s(va_list txt)
+{
+	char *s = va_arg(txt, char *);
+
+	if (s == NULL)
+		printf("(nil)");
+	else
+		printf("%s", s);
+}
+
 
 typedef struct f
 {
 	char *f;
-	char (*p)(const char * const a);
+	void (*p)(va_list);
 } form;
-
-form typef[] = {
-	{"c", print_strings},
-	{"i", print_numbers},
-	{"f", print_float},
-	{"s", print_strings},
-	{NULL, NULL}
-};
 
 /**
  * print_all - function that prints anything.
@@ -28,16 +63,22 @@ form typef[] = {
 void print_all(const char * const format, ...)
 {
 	va_list txt;
-	char *p, *args;
+	const char *args;
 	int i = 0, j = 0, num_args;
-	void (*prints)(const char *, const unsigned int, ...);
+
+	form typef[] = {
+		{"c", print_s},
+		{"i", print_i},
+		{"f", print_f},
+		{"s", print_s},
+		{NULL, NULL}
+	};
 
 	va_start(txt, format);
 
-	args = va_arg(txt, char *);
-	num_args = strlen(args);
+	args = format;
 
-	while (args[i])
+	while (*args)
 	{
 		while (typef[j].f != NULL)
 		{
