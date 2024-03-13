@@ -86,8 +86,7 @@ void print_all(const char * const format, ...)
 
 				typef[j].p(txt);
 
-				if (!flag)
-					flag = 1;
+				flag = 1;
 			}
 			j++;
 		}
