@@ -43,9 +43,12 @@ void print_s(va_list txt)
 	char *s = va_arg(txt, char *);
 
 	if (s == NULL)
+	{
 		printf("(nil)");
-	else
-		printf("%s", s);
+		return;
+	}
+
+	printf("%s", s);
 }
 
 
