@@ -61,7 +61,8 @@ void print_all(const char * const format, ...)
 {
 	va_list txt;
 	const char *args;
-	int i = 0, j, flag = 0;
+	char *s = "";
+	int i = 0, j;
 
 	form typef[] = {
 		{"c", print_c},
@@ -81,12 +82,11 @@ void print_all(const char * const format, ...)
 		{
 			if (*(typef[j].f) == args[i])
 			{
-				if (i > 0 && flag)
-					printf(", ");
+				printf("%s", s);
 
 				typef[j].p(txt);
 
-				flag = 1;
+				s = ", ";
 			}
 			j++;
 		}
