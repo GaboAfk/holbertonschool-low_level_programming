@@ -49,12 +49,6 @@ void print_s(va_list txt)
 }
 
 
-typedef struct f
-{
-	char *f;
-	void (*p)(va_list);
-} form;
-
 /**
  * print_all - function that prints anything.
  * @format: list of types of arguments passed to the funtction.
@@ -64,10 +58,10 @@ void print_all(const char * const format, ...)
 {
 	va_list txt;
 	const char *args;
-	int i = 0, j = 0, num_args;
+	int i = 0, j, flag = 0;
 
 	form typef[] = {
-		{"c", print_s},
+		{"c", print_c},
 		{"i", print_i},
 		{"f", print_f},
 		{"s", print_s},
@@ -75,23 +69,25 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(txt, format);
-
 	args = format;
 
-	while (*args)
+	while (args && args[i] != '\0')
 	{
-		while (typef[j].f != NULL)
+		j = 0;
+		while (typef[j].f)
 		{
 			if (*(typef[j].f) == args[i])
 			{
-				p = va_arg(txt, char*);
-				prints = typef[j].p;
-				
+				if (i > 0 && flag)
+					printf(", ");
+
+				typef[j].p(txt);
+
+				if (!flag)
+					flag = 1;
 			}
 			j++;
 		}
-		if (i < num_args - 1)
-			printf(", ");
 
 		i++;
 	}
