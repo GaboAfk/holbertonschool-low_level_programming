@@ -4,7 +4,6 @@
  */
 
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - function that inserts a
  *								new node at a given position.
@@ -32,8 +31,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 
 	if (!new && pos == idx) /* agregar nodo al final */
-		return (add_dnodeint_end(&new, n));
-
+	{
+		return (add_dnodeint_end(h, n));
+	}
 	if (!new && pos != idx) /*no hay suficientes nodos*/
 		return (NULL);
 
