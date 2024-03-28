@@ -17,7 +17,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *aux = *head;
 	unsigned int pos = 0;
 
-	if (!head)/*lista vacía*/
+	if (!head)	/*lista vacía*/
 		return (-1);
 
 	while (aux && pos < index)
@@ -26,17 +26,19 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		pos++;
 	}
 
-	if (!aux)/*llegué al final*/
+	if (!aux)	/*llegué al final*/
 		return (-1);
 
 	if (aux->prev)
 		aux->prev->next = aux->next;
-	else
+	else		/*primer nodo*/
 		*head = (*head)->next;
 
 	if (aux->next)
 		aux->next->prev = aux->prev;
+
 	free(aux);
 	aux = NULL;
+
 	return (1);
 }
