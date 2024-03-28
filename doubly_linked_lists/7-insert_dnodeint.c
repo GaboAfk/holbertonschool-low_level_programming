@@ -11,13 +11,16 @@
  * @h: pointer to double linked list pointer.
  * @idx: index of the list where the new node should be added. Start at 0.
  * @n: number to add.
- * Return: address of the new list. NULL if fails or is not possible to add
+ * Return: address of the new node. NULL if fails or is not possible to add
  *				the new node at index at @idx.
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *aux = NULL, *new = *h;
 	unsigned int pos = 0;
+
+	if (!h)
+		return (NULL);
 
 	if (idx == 0) /*idx 0 agregar al inicio*/
 		return (add_dnodeint(&(*h), n));
@@ -29,12 +32,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 
 	if (!new && pos == idx) /* agregar nodo al final */
-	{
-		add_dnodeint_end(&new, n);
-		return (*h);
-	}
+		return (add_dnodeint_end(&new, n));
 
-	if (pos != idx) /*no hay suficientes nodos*/
+	if (!new && pos != idx) /*no hay suficientes nodos*/
 		return (NULL);
 
 	aux = new->prev;
@@ -46,5 +46,5 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	new->prev = aux;
 
-	return (*h);
+	return (new);
 }
