@@ -38,12 +38,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	res = write(1, buf, fd2);
+	res = write(STDOUT_FILENO, buf, fd2);
 	if (res == -1)
 		return (0);
 
 	free(buf);
 	close(fd);
 
-	return (res);
+	return (fd2);
 }
