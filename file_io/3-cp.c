@@ -16,6 +16,7 @@ int main(int ac, char **av)
 {
 	int file_to, file_from, bytes_read;
 	char buffer[1024];
+	mode_t perm = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 
 	if (ac != 3)
 	{
@@ -23,7 +24,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 
-	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, perm);
 	file_from = open(av[1], O_RDONLY);
 
 	bytes_read = read(file_from, buffer, 1024);
