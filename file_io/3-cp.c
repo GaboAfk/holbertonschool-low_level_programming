@@ -26,13 +26,11 @@ int main(int ac, char **av)
 	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	file_from = open(av[1], O_RDONLY);
 
-	if (file_from == -1)
-		dprintf(1, "Error: Can't read from file %s\n", av[1]), exit(98);
-
 	bytes_read = read(file_from, buffer, 1024);
+
 	if (bytes_read == -1 || file_from == -1)
 		dprintf(2, "Error: Can't read from file %s\n", av[1]), exit(98);
-
+	/*error checker file_from == -1 --> dprintf(1, "err...")....*/
 	while (bytes_read > 0 && file_from > 0)
 	{
 		if (file_to == -1 || write(file_to, buffer, bytes_read) < 0)
