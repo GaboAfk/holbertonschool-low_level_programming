@@ -35,7 +35,7 @@ int main(int ac, char **av)
 
 	while (bytes_read > 0 && file_from > 0)
 	{
-		if (write(file_to, buffer, bytes_read) < 0)
+		if (file_to == -1 || write(file_to, buffer, bytes_read) < 0)
 		{
 			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			exit(99);
@@ -45,12 +45,12 @@ int main(int ac, char **av)
 
 	if (close(file_from) == -1)
 	{
-		dprintf(2, "Error: Can't iclose fd %d\n", file_from);
+		dprintf(2, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	if (close(file_to) == -1)
 	{
-		dprintf(2, "Error: Can't iclose fd %d\n", file_to);
+		dprintf(2, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
 	return (0);
