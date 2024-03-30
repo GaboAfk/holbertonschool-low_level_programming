@@ -29,7 +29,7 @@ int main(int ac, char **av)
 	bytes_read = read(file_from, buffer, 1024);
 	if (bytes_read == -1 || file_from == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]), exit(98);
+		dprintf(1, "Error: Can't read from file %s\n", av[1]), exit(98);
 	}
 
 	while (bytes_read > 0 && file_from > 0)
